@@ -34,7 +34,7 @@ def get_worksheet(name):
     except: return None
 
 # --- CACHING (SPEED BOOSTER) 🚀 ---
-@st.cache_data(ttl=60)
+@st.cache_data(ttl=600)
 def get_cached_data(sheet_name):
     ws = get_worksheet(sheet_name)
     if ws: return ws.get_all_records()
@@ -528,3 +528,4 @@ elif menu == "📊 Reports":
         c1.metric("Total Income", f"{inc:,.2f}")
         c2.metric("Total Expense", f"{exp:,.2f}")
         c3.metric("Net Profit", f"{prof:,.2f}")
+
