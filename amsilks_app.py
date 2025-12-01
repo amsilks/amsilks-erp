@@ -33,7 +33,7 @@ def get_worksheet(name):
     except: return None
 
 # --- CACHING ---
-@st.cache_data(ttl=60)
+@st.cache_data(ttl=600)
 def get_cached_data(sheet_name):
     ws = get_worksheet(sheet_name)
     if ws: return ws.get_all_records()
@@ -481,3 +481,4 @@ elif menu == "🔍 History":
         res = [d for d in data if str(d['Phone']) == ph]
         if res: st.dataframe(pd.DataFrame(res))
         else: st.warning("Not Found")
+
